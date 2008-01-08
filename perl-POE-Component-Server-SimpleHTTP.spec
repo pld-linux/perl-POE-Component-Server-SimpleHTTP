@@ -9,7 +9,7 @@ Summary:	POE::Component::Server::SimpleHTTP - Perl extension to serve HTTP reque
 #Summary(pl):	
 Name:		perl-POE-Component-Server-SimpleHTTP
 Version:	1.30
-Release:	1
+Release:	0.1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
@@ -19,6 +19,9 @@ Patch0:		%{name}-nointeractivebuild.patch
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
+BuildRequires:	perl(IPC::Shareable)
+BuildRequires:	perl(POE::Component::Client::HTTP)
+BuildRequires:	perl(POE::Component::SSLify) 
 BuildRequires:	perl(HTTP::Date)
 BuildRequires:	perl(HTTP::Request)
 BuildRequires:	perl(HTTP::Response)
@@ -31,11 +34,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This module makes serving up HTTP requests a breeze in POE.
-
-The hardest thing to understand in this module is the HANDLERS. That's it!
-
-The standard way to use this module is to do this:
-
 
 # %description -l pl
 # TODO
@@ -58,7 +56,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-cp -a examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/
 
 %clean
 rm -rf $RPM_BUILD_ROOT
