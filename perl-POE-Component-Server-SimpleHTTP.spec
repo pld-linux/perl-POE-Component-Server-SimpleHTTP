@@ -20,16 +20,12 @@ URL:		http://search.cpan.org/dist/POE-Component-Server-SimpleHTTP/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
-BuildRequires:	perl(IPC::Shareable)
-BuildRequires:	perl(POE::Component::Client::HTTP)
-BuildRequires:	perl(POE::Component::SSLify) 
-BuildRequires:	perl(HTTP::Date)
-BuildRequires:	perl(HTTP::Request)
-BuildRequires:	perl(HTTP::Response)
-BuildRequires:	perl(POE) >= 0.38
+BuildRequires:	perl-IPC-Shareable
+BuildRequires:	perl-POE >= 0.38
+BuildRequires:	perl-POE-Component-Client-HTTP >= 0.82
+BuildRequires:	perl-POE-Component-SSLify
+BuildRequires:	perl-libwww
 # wyglada na to ze jednak perl(POE) > 0.9999 bo z 0.9989 nie fafa (wali duzo testow)
-BuildRequires:	perl(LWP::ConnCache)
-BuildRequires:	perl(LWP::UserAgent)
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
