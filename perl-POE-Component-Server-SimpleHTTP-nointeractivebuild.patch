@@ -7,7 +7,7 @@ diff -Nur POE-Component-Server-SimpleHTTP-1.30/Makefile.PL POE-Component-Server-
  
 -my $value = prompt( 'Do you want to test streaming ( requires POE::Component::Client::HTTP ) [y/N]?', 'N' );
 +my $value = 'Y';
- build_requires   'POE::Component::Client::HTTP' =>    0 if $value =~ /^Y$/i;
+ build_requires   'POE::Component::Client::HTTP' => 0.82 if $value =~ /^Y$/i;
  
  # Ask users if they want SSL support
 -$value = prompt( 'Do you want SSL support ( requires POE::Component::SSLify ) [y/N]?', 'N' );
