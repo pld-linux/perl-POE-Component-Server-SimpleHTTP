@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_without	tests		# do not perform "make test"
 #
-%include	/usr/lib/rpm/macros.perl
 %define	pdir	POE
 %define	pnam	Component-Server-SimpleHTTP
 Summary:	POE::Component::Server::SimpleHTTP - Perl extension to serve HTTP requests in POE
